@@ -1,0 +1,11 @@
+#!/bin/bash
+# set -euo pipefail
+
+PORT=${PORT:-80}
+CACHE=${CACHE:-./cache}
+
+echo -e "{\"port\":\""$PORT"\", \"cacheDir\":\""$CACHE"\"}" > ./settings.json
+
+node server.js
+
+sleep infinity
