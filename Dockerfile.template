@@ -2,8 +2,10 @@ FROM resin/%%RESIN_MACHINE_NAME%%-node
 
 WORKDIR /app
 
-COPY package.json /app/package.json
+Add package.json /app/package.json
 RUN npm install
 
-COPY ./ /app
-CMD ["node", "/app/server.js"]
+ADD ./ /app
+
+ADD run /bin/run
+ENTRYPOINT [ "/bin/run" ]
